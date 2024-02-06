@@ -21,17 +21,22 @@ def home():
 def login():
     return render_template('login.html',title="login")
 
-# @app.route('/user_login',methods=['GET','POST'])
-# def user_login():
-#     if request.method=='POST':
-#         username=request.form['username']
-#         password=request.form['passwd']
-#         cursor.execute('select * from ')
-#         return redirect('/')
+@app.route('/user_login',methods=['GET','POST'])
+def user_login():
+    if request.method=="POST":
+        username=request.form['username']
+        password=request.form['passwd']
+        # cursor.execute('select * from ')
+        return redirect('/')
 
 @app.route('/signup')
 def signup():
     return render_template('signup.html',title="signup")
+
+@app.route('/user_signup',methods=['GET','POST'])
+def user_signup():
+    if request.method=="POST":
+        return redirect('/')
 
 
 if __name__=="__main__":

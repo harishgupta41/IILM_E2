@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../static/style.css">
     {% if title %}
         <title>Learning with AI-{{title}}</title>
@@ -15,9 +16,9 @@
         <nav id ="before-signup-login">
             <div class="logo"><i class="fa-brands fa-google-scholar"></i>Learning With AI</div>
             <div class="sign_in_bar">
-                <button class="login-btn">Log in</button>
+                <a href="{{url_for('login')}}"><button class="login-btn" onclick="">Log in</button></a>
                 <div class="line1"></div>
-                <button class="signup-btn">Sign up</button>
+                <a href="{{url_for('signup')}}"><button class="signup-btn">Sign up</button></a>
             </div>
         </nav>
         {% block content %}
