@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    {% if title %}
+        <title>Learning with AI-{{title}}</title>
+    {% else %}
+        <title>Learning with AI</title>
+    {% endif %}
+</head>
+<body>
+    <div class="content">
+        <nav id ="before-signup-login">
+            <div class="logo"><i class="fa-brands fa-google-scholar"></i>Learning With AI</div>
+            <div class="sign_in_bar">
+                <button class="login-btn">Log in</button>
+                <div class="line1"></div>
+                <button class="signup-btn">Sign up</button>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

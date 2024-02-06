@@ -1,54 +1,138 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Passion+One:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Archivo Black", sans-serif;
+  font-family: "Passion One", sans-serif;
 }
 
-.outer{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1f1d1d;
+header #before-signup-login,
+header #after-signup-login {
+  height: 10vh;
+  background-color: rgb(127, 0, 255);
+  box-shadow: 0px 3px 5px 1px black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.inner{
-    width: 100vw;
+#before-signup-login .logo,
+#after-signup-login .logo {
+  margin-left: 50px;
+  font-family: "Archivo Black", sans-serif;
 }
 
-.inner form{
-    width: 50%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 1em;
-    background-color: #ced4da;
-    border-radius: 8px;
-    padding: 1em;
+#before-signup-login .sign_in_bar,
+#after-signup-login .nav-bar {
+  /* this is for login btn, line and sign up btn*/
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.inner form label{
-    font-size: 1.5em;
+.sign_in_bar .line1,
+#after-signup-login .line2 {
+  height: 25px;
+  margin: 0px 4px;
+  width: 4px;
+  background-color: black;
+  border-radius: 5px;
 }
 
-.inner form input{
-    width: 100%;
-    font-size: 1.2em;
-    padding: .1em .3em;
-    border: none;
-    outline: none;
-    border-radius: 4px;
+.login-btn,
+.signup-btn {
+  padding: 0px 2px;
+  color: white;
+  font-size: 20px;
+  border: 2px solid rgb(127, 0, 255);
+  background-color: rgb(127, 0, 255);
 }
 
-.inner form button{
-    padding: .2em .5em;
-    font-size: 1.1em;
+.login-btn:hover,
+.signup-btn:hover {
+  height: 25px;
+  color: rgb(127, 0, 255);
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
-@media all and (width < 750px){
-    .inner form{
-        width: 80%;
-    }
+/* --------------------------------------------------------- */
+#after-signup-login,
+.nav-bar,
+.login-form-container,
+.login-form-container .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar a {
+  margin: 15px;
+  display: flex;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-bar .logout {
+  margin-left: 5px;
+  padding: 0px 2px;
+  color: white;
+  font-size: 18px;
+  border: 2px solid rgb(127, 0, 255);
+  background-color: rgb(127, 0, 255);
+}
+
+.nav-bar a:hover,
+.nav-bar .logout:hover {
+  color: black;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------- */
+/* login form css*/
+.login-form-container .signup-form-container {
+  height: 100vh;
+}
+.login-form-container .login-form {
+  padding: 25px;
+  border: 2px solid black;
+  border-radius: 10px;
+  flex-direction: column;
+  box-shadow: 1px 1px 10px 5px gray;
+}
+.login-form h2,
+.login-form h3 {
+  margin: 0px 10px 10px;
+}
+form label,
+form input {
+  margin: 2px;
+  color: rgb(127, 0, 255);
+  font-size: 20px;
+}
+.loginbtn-loginform {
+  margin: 5px;
+  height: 25px;
+  width: 200px;
+  border: 2px solid rgb(127, 0, 255);
+  border-radius: 10px;
+}
+
+/* --------------------------------------------------------- */
+/* --------------------------------------------------------- */
+/* --------------------------------------------------------- */
+.container-1 {
+  height: 100vh;
+}
+
+/* --------------------------------------------------------- */
+
+.container-2 {
+  height: 100vh;
+  background-color: rgb(127, 0, 255);
 }
