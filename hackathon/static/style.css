@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.outer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f1d1d;
+}
+
+.inner{
+    width: 100vw;
+}
+
+.inner form{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    background-color: #ced4da;
+    border-radius: 8px;
+    padding: 1em;
+}
+
+.inner form label{
+    font-size: 1.5em;
+}
+
+.inner form input{
+    width: 100%;
+    font-size: 1.2em;
+    padding: .1em .3em;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.inner form button{
+    padding: .2em .5em;
+    font-size: 1.1em;
+}
+
+@media all and (width < 750px){
+    .inner form{
+        width: 80%;
+    }
+}
