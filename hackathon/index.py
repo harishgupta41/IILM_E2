@@ -21,3 +21,9 @@ def home():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/login_user',methods=['POST'])
+def login_user():
+    if request.method=='POST':
+
+    return #redirect('/home')
