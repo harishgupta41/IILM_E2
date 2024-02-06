@@ -4,9 +4,9 @@ import uuid
 
 mydb=mysql.connector.connect(
     host="localhost",
-    database="",
-    username="",
-    password=""
+    database="harry",
+    username="harry",
+    password="dl3san3581"
 )
 
 cursor=mydb.cursor()
@@ -16,11 +16,11 @@ app=Flask(__name__)
 @app.route('/')
 @app.route('/home')
 def home():
-    return 
+    return render_template('home.html',title="harish")
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html',title='harry')
 
 @app.route('/login_user',methods=['POST'])
 def login_user():
