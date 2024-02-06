@@ -25,5 +25,7 @@ def login():
 @app.route('/login_user',methods=['POST'])
 def login_user():
     if request.method=='POST':
-
-    return #redirect('/home')
+        username=request.form['username']
+        password=request.form['passwd']
+        cursor.execute('select * from ')
+        return redirect('/')
