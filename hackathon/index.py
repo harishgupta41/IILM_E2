@@ -4,7 +4,7 @@ import uuid
 
 mydb = mysql.connector.connect(
     host="localhost",
-    database="harry",
+    database="study",
     user="harry",
     password="dl3san3581"
 )
@@ -36,6 +36,10 @@ def signup():
 @app.route('/user_signup',methods=['GET','POST'])
 def user_signup():
     if request.method=="POST":
+        fullname=request.form['fname']
+        email=request.form['email']
+        phone=request.form['phone']
+        
         return redirect('/')
 
 
