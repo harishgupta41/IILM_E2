@@ -2,21 +2,20 @@ from flask import Flask, render_template, request, redirect
 import mysql.connector
 import uuid
 
-mydb=mysql.connector.connect(
+mydb = mysql.connector.connect(
     host="localhost",
     database="harry",
     username="harry",
     password="dl3san3581"
 )
-
-cursor=mydb.cursor()
+cursor = mydb.cursor()
 
 app=Flask(__name__)
 
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html',title="harish")
+    return "hello world!"
 
 @app.route('/login')
 def login():
