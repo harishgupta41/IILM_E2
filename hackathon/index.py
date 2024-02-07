@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import mysql.connector
-import uuid
+# import uuid
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -39,6 +39,8 @@ def user_signup():
         fullname=request.form['fname']
         email=request.form['email']
         phone=request.form['phone']
+        username=request.form['username']
+        # userid=uuid.uuid4().hex
         
         return redirect('/')
 
