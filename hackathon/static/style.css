@@ -1,138 +1,235 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Passion+One:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Passion+One:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "Archivo Black", sans-serif;
-  font-family: "Passion One", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Passion One', sans-serif;
 }
 
 header #before-signup-login,
 header #after-signup-login {
-  height: 10vh;
-  background-color: rgb(127, 0, 255);
-  box-shadow: 0px 3px 5px 1px black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    height: 12vh;
+    background-color: rgb(127, 0, 255);
+    box-shadow: 0px 3px 5px 1px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #before-signup-login .logo,
 #after-signup-login .logo {
-  margin-left: 50px;
-  font-family: "Archivo Black", sans-serif;
+    margin-left: 50px;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 #before-signup-login .sign_in_bar,
 #after-signup-login .nav-bar {
-  /* this is for login btn, line and sign up btn*/
-  margin-right: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    /* this is for login btn, line and sign up btn*/
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign_in_bar .line1,
 #after-signup-login .line2 {
-  height: 25px;
-  margin: 0px 4px;
-  width: 4px;
-  background-color: black;
-  border-radius: 5px;
+    height: 25px;
+    margin: 0px 4px;
+    width: 4px;
+    background-color: black;
+    border-radius: 5px;
 }
 
 .login-btn,
 .signup-btn {
-  padding: 0px 2px;
-  color: white;
-  font-size: 20px;
-  border: 2px solid rgb(127, 0, 255);
-  background-color: rgb(127, 0, 255);
+    padding: 0px 2px;
+    color: white;
+    font-size: 20px;
+    border: 2px solid rgb(127, 0, 255);
+    background-color: rgb(127, 0, 255);
 }
 
 .login-btn:hover,
 .signup-btn:hover {
-  height: 25px;
-  color: rgb(127, 0, 255);
-  background-color: white;
-  border-radius: 10px;
-  border: 2px solid black;
+    height: 25px;
+    color: rgb(127, 0, 255);
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
 }
 
 /* --------------------------------------------------------- */
 #after-signup-login,
 .nav-bar,
 .login-form-container,
-.login-form-container .login-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.home-pg-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-bar a {
-  margin: 15px;
-  display: flex;
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
+    margin: 15px;
+    display: flex;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
 }
-
 .nav-bar .logout {
-  margin-left: 5px;
-  padding: 0px 2px;
-  color: white;
-  font-size: 18px;
-  border: 2px solid rgb(127, 0, 255);
-  background-color: rgb(127, 0, 255);
+    margin-left: 5px;
+    padding: 0px 2px;
+    color: white;
+    font-size: 18px;
+    border: 2px solid rgb(127, 0, 255);
+    background-color: rgb(127, 0, 255);
 }
-
 .nav-bar a:hover,
 .nav-bar .logout:hover {
-  color: black;
-  cursor: pointer;
+    color: black;
+    cursor: pointer;
+}
+/* --------------------------------------------------------- */
+/* login/signup form css*/
+.signup-form-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: white;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px 5px black;
+    position: fixed;
+    top: 30%;
+    z-index: 3;
+    display: none;
 }
 
-/* --------------------------------------------------------- */
-/* login form css*/
-.login-form-container .signup-form-container {
-  height: 100vh;
+.signup-form-nxt{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: white;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px 5px black;
+    position: fixed;
+    top: 30%;
+    z-index: 3;
+    display: none;
 }
-.login-form-container .login-form {
-  padding: 25px;
-  border: 2px solid black;
-  border-radius: 10px;
-  flex-direction: column;
-  box-shadow: 1px 1px 10px 5px gray;
+.signup-form-after-click{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.signup-form-nxt-ka-nxt{
+    display: flex;
+}
+/* .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+} */
+ .login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    display: none;
+    background-color: white;
+    position: fixed;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px 5px black;
+    top: 30%;
+    z-index:3;
+}
+.login-form-after-click{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
 }
 .login-form h2,
 .login-form h3 {
-  margin: 0px 10px 10px;
+    margin: 0px 10px 10px;
 }
 form label,
 form input {
-  margin: 2px;
-  color: rgb(127, 0, 255);
-  font-size: 20px;
+    margin: 2px;
+    padding: 4px;
+    color: rgb(127, 0, 255);
+    font-size: 20px;
 }
 .loginbtn-loginform {
-  margin: 5px;
-  height: 25px;
-  width: 200px;
-  border: 2px solid rgb(127, 0, 255);
-  border-radius: 10px;
+    margin: 5px;
+    height: 25px;
+    width: 200px;
+    border: 2px solid rgb(127, 0, 255);
+    border-radius: 10px;
 }
+/* --------------------------------------------------------- */
 
 /* --------------------------------------------------------- */
-/* --------------------------------------------------------- */
+.overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0%;
+    z-index: -1;
+    opacity: 0;
+}
+.overlay-nt{
+    z-index: 1;
+    opacity: 1;
+}
 /* --------------------------------------------------------- */
 .container-1 {
-  height: 100vh;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
 }
 
+.home-pg-text{
+    height: 50vh;
+    width: 80vw;
+    border-radius: 5px;
+    background-color:rgb(203, 195, 227) ;
+    display: flex;
+    flex-direction: column;
+    
+}
+.container-1 h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+.container-1 h3{
+    font-family: 'Quicksand', sans-serif;
+}
 /* --------------------------------------------------------- */
 
 .container-2 {
-  height: 100vh;
-  background-color: rgb(127, 0, 255);
+    height: 100vh;
+    background-color: rgb(127, 0, 255);
+
 }
