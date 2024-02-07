@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block content %}
+<div class="login-form-container">
+  <div class="login-form">
+    <h2><i class="fa-brands fa-google-scholar"></i>Learning With AI</h2>
+    <h3>Welcome Back</h3>
+    <form action="{{url_for('user_login')}}" method="POST">
+      <label for="uname"><i class="fa-solid fa-user"></i> Username</label><br />
+      <input
+        type="text"
+        name="username"
+        id="uname"
+        placeholder="Enter your username"
+      /><br />
+      <label for="pass"><i class="fa-solid fa-lock"></i> Password</label><br />
+      <input
+        type="password"
+        name="password"
+        id="pass"
+        placeholder="Enter your password"
+      /><br />
+    </form>
+    <button class="loginbtn-loginform">Log in</button>
+    <a href="{{url_for('signup')}}">Don't have an account?</a>
+  </div>
+</div>
+{% endblock %}
