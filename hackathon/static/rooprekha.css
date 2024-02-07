@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Passion+One:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
 
 * {
     margin: 0;
@@ -10,7 +11,7 @@
 
 header #before-signup-login,
 header #after-signup-login {
-    height: 10vh;
+    height: 12vh;
     background-color: rgb(127, 0, 255);
     box-shadow: 0px 3px 5px 1px black;
     display: flex;
@@ -63,7 +64,8 @@ header #after-signup-login {
 /* --------------------------------------------------------- */
 #after-signup-login,
 .nav-bar,
-.login-form-container,.login-form-container .login-form {
+.login-form-container,
+.home-pg-text {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +78,6 @@ header #after-signup-login {
     color: white;
     text-decoration: none;
 }
-
 .nav-bar .logout {
     margin-left: 5px;
     padding: 0px 2px;
@@ -85,51 +86,146 @@ header #after-signup-login {
     border: 2px solid rgb(127, 0, 255);
     background-color: rgb(127, 0, 255);
 }
-
 .nav-bar a:hover,
 .nav-bar .logout:hover {
     color: black;
     cursor: pointer;
 }
-
 /* --------------------------------------------------------- */
-/* login form css*/
-.login-form-container .signup-form-container{
+/* login/signup form css*/
+.signup-form-container{
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.login-form-container .login-form{
+.signup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: white;
     padding: 25px;
     border: 2px solid black;
     border-radius: 10px;
     flex-direction: column;
-    box-shadow: 1px 1px 10px 5px gray;
-    
-
+    box-shadow: 1px 1px 10px 5px black;
+    position: fixed;
+    top: 30%;
+    z-index: 3;
+    display: none;
 }
-.login-form h2,.login-form h3{
+
+.signup-form-nxt{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: white;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px 5px black;
+    position: fixed;
+    top: 30%;
+    z-index: 3;
+    display: none;
+}
+.signup-form-after-click{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.signup-form-nxt-ka-nxt{
+    display: flex;
+}
+/* .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+} */
+ .login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    display: none;
+    background-color: white;
+    position: fixed;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px 5px black;
+    top: 30%;
+    z-index:3;
+}
+.login-form-after-click{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.login-form h2,
+.login-form h3 {
     margin: 0px 10px 10px;
 }
-form label,form input{
+form label,
+form input {
     margin: 2px;
+    padding: 4px;
     color: rgb(127, 0, 255);
     font-size: 20px;
 }
-.loginbtn-loginform{
+.loginbtn-loginform {
     margin: 5px;
     height: 25px;
     width: 200px;
     border: 2px solid rgb(127, 0, 255);
     border-radius: 10px;
 }
-
+/* --------------------------------------------------------- */
 
 /* --------------------------------------------------------- */
-/* --------------------------------------------------------- */
+.overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0%;
+    z-index: -1;
+    opacity: 0;
+}
+.overlay-nt{
+    z-index: 1;
+    opacity: 1;
+}
 /* --------------------------------------------------------- */
 .container-1 {
-    height: 100vh;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
 }
 
+.home-pg-text{
+    height: 50vh;
+    width: 80vw;
+    border-radius: 5px;
+    background-color:rgb(203, 195, 227) ;
+    display: flex;
+    flex-direction: column;
+    
+}
+.container-1 h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+.container-1 h3{
+    font-family: 'Quicksand', sans-serif;
+}
 /* --------------------------------------------------------- */
 
 .container-2 {
