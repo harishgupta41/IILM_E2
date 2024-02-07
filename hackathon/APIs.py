@@ -1,5 +1,5 @@
 import random
-from twilio import twiml.Client
+from twilio import Client
 
 def getOTP():
     return random.randint(100000,999999)
