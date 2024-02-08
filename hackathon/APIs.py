@@ -10,4 +10,4 @@ def getOTPapi(num):
     client = Client(account_sid,auth_token)
     otp=getOTP()
     msg_body='Your OTP is '+str(otp)
-    message
+    message={}

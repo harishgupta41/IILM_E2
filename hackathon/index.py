@@ -15,7 +15,11 @@ app=Flask(__name__)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html',title="home")
+    return render_template('home_before_login.html',title="home")
+
+@app.route('/home_user')
+def home_user():
+    return render_template('home.html',title='home')
 
 @app.route('/login')
 def login():
