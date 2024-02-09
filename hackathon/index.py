@@ -17,20 +17,12 @@ app=Flask(__name__)
 def home():
     return render_template('home.html',title="home")
 
-# @app.route('/home_user')
-# def home_user():
-#     return render_template('home.html',title='home')
-
-# @app.route('/login')
-# def login():
-#     return render_template('login.html',title="login")
-
 @app.route('/user_login',methods=['GET','POST'])
 def user_login():
     if request.method=="POST":
         username=request.form['username']
         password=request.form['passwd']
-        cursor.execute('select * from students where username="{0}" and password="{1}"'.format(username,hash_sha_256(password)))
+        cursor.execute('select * from students where username="{0}" and password="{1}"'.format(username,password))
         data=cursor.fetchall()
         if(data):
             resp=make_response(redirect('/'))
@@ -38,11 +30,6 @@ def user_login():
             return resp
         else:
             return redirect('/')
-            
-
-# @app.route('/signup')
-# def signup():
-#     return render_template('signup.html',title="signup")
 
 @app.route('/user_signup',methods=['GET','POST'])
 def user_signup():
@@ -60,16 +47,16 @@ def user_signup():
             cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(username,fullname,email,hash_sha_256(password),phone))
             mydb.commit()
             return render_template('access.html',title="registration-success!")
-        
-        
-        # return redirect('/')
+
+@app.route('/help_center')
+def help_center():
+    return render_template('help.html',title="help-center")
 
 @app.route('/logout')
 def logout():
     response = make_response(render_template('logout.html',title='logging-out'))
     response.set_cookie('user', '', max_age=0)
     return response
-
 
 if __name__=="__main__":
     app.run(debug=True)

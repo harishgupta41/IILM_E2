@@ -7,10 +7,10 @@
         <!-- <nav id = "after-signup-login"> -->
         <!-- <div class="logo"><i class="fa-brands fa-google-scholar"></i>Learning With AI</div> -->
             <div class="nav-bar">
-                <a href="#">Home</a>
-                <a href="#">Courses</a>harry123
+                <a href="{{url_for('home')}}">Home</a>
+                <a href="#">Courses</a>
                 <a href="#">Contact us</a>
-                <a href="#">Help</a>
+                <a href="{{url_for('help_center')}}">Help</a>
                 <div class="line2"></div>
                 <a href="{{url_for('logout')}}"><button class="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
             </div>

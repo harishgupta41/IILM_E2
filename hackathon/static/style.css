@@ -200,7 +200,7 @@ form input {
 }
 /* --------------------------------------------------------- */
 .container-1 {
-    height: 80vh;
+    height: 88vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,6 +210,7 @@ form input {
 }
 
 .home-pg-text{
+
     height: 50vh;
     width: 80vw;
     border-radius: 5px;
@@ -236,9 +237,3 @@ form input {
 sign-up form .sec-page{
     display:none;
 }
-
-/* .content{
-    width: 100%;
-    height: 100vh;
-    align
-} */
