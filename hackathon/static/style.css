@@ -35,7 +35,7 @@ header #after-signup-login {
 }
 
 .sign_in_bar .line1,
-#after-signup-login .line2 {
+header .nav-bar .line2 {
     height: 25px;
     margin: 0px 4px;
     width: 4px;
