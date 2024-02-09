@@ -48,6 +48,10 @@ def user_signup():
             mydb.commit()
             return render_template('access.html',title="registration-success!")
 
+@app.route('/courses_offered')
+def courses_offered():
+    return render_template('courses.html',title='courses-offered')
+
 @app.route('/help_center')
 def help_center():
     return render_template('help.html',title="help-center")
