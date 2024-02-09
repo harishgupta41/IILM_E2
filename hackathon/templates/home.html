@@ -8,7 +8,7 @@
         <!-- <div class="logo"><i class="fa-brands fa-google-scholar"></i>Learning With AI</div> -->
             <div class="nav-bar">
                 <a href="#">Home</a>
-                <a href="#">Courses</a>
+                <a href="#">Courses</a>harry123
                 <a href="#">Contact us</a>
                 <a href="#">Help</a>
                 <div class="line2"></div>
@@ -44,27 +44,32 @@
             <h2><i class="fa-brands fa-google-scholar"></i>Learning With AI</h2>
             <h3>Create your account</h3>
             <form action="{{url_for('user_signup')}}" method="POST">
-                <label for="fname">Enter your Fullname:</label><br>
-                <input type="text" name="fname" id="fname"placeholder=" Your Fullname"><br>
-                <label for="email">Enter your Email:</label><br>
-                <input type="text" name="email" id="email" placeholder="Your Email"><br>
-                <label for="no">Enter your phone number:</label><br>
-                <input type="number" name="phone" id="no" placeholder="Enter Number"><br>
-                <button class="next">Next</button>
+                <div class="1">
+                    <label for="fname">Enter your Fullname:</label><br>
+                    <input type="text" name="fname" id="fname"placeholder=" Your Fullname"><br>
+                    <label for="email">Enter your Email:</label><br>
+                    <input type="text" name="email" id="email" placeholder="Your Email"><br>
+                    <label for="no">Enter your phone number:</label><br>
+                    <input type="number" name="phone" id="no" placeholder="Enter Number"><br>
+                    <button class="next">Next</button>
+                </div>
+                <div class="2">
+                    <label for="uname2">Create your Username</label><br>
+                    <input type="text" name="username" id="uname2" placeholder="Username"><br>
+                    <label for="Pass">Create your Password</label><br>
+                    <input type="password" name="password" id="Pass" placeholder="Password"><br>
+                    <label for="rePass">Reenter Password</label><br>
+                    <input type="password" name="cnfmpassword" id="rePass" placeholder="Reenter Password"><br>
+                    <input type="submit" class="submitbtn" id="Pass"><br>
+                </div>
             </form>
         </div>
-        <div class="signup-form-nxt">
+        <!-- <div class="signup-form-nxt">
             <h2><i class="fa-brands fa-google-scholar"></i>Learning With AI</h2>
             <form action="{{url_for('user_signup')}}" method="POST">
-                <label for="uname2">Create your Username</label><br>
-                <input type="text" name="username" id="uname2" placeholder="Username"><br>
-                <label for="Pass">Create your Password</label><br>
-                <input type="password" name="password" id="Pass" placeholder="Password"><br>
-                <label for="rePass">Reenter Password</label><br>
-                <input type="password" name="cnfmpassword" id="rePass" placeholder="Reenter Password"><br>
-                <input type="submit" class="submitbtn" id="Pass"><br>
+                
             </form>
-        </div>
+        </div> -->
     </div>
     <div class="overlay"></div>
     <div class="container-1">
