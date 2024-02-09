@@ -233,6 +233,9 @@ form input {
     background-color: rgb(127, 0, 255);
 
 }
+sign-up form .sec-page{
+    display:none;
+}
 
 /* .content{
     width: 100%;
