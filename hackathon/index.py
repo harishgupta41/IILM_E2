@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, make_response
 import mysql.connector
-from user_methods import hash_sha_256
+from user_methods import hash_sha_256, getOTPapi
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -22,7 +22,7 @@ def user_login():
     if request.method=="POST":
         username=request.form['username']
         password=request.form['passwd']
-        cursor.execute('select * from students where username="{0}" and password="{1}"'.format(username,password))
+        cursor.execute('select * from students where username="{0}" and password="{1}"'.format(username,hash_sha_256(password)))
         data=cursor.fetchall()
         if(data):
             resp=make_response(redirect('/'))
@@ -34,19 +34,42 @@ def user_login():
 @app.route('/user_signup',methods=['GET','POST'])
 def user_signup():
     if request.method=="POST":
-        print(request.form[0])
-        fullname=request.form['fname']
-        email=request.form['email']
-        phone=request.form['phone']
-        username=request.form['username']
-        password=request.form['password']
-        cnfm_password=request.form['cnfmpassword']
+        # print(request.form)
+        data=[]
+        data.append(request.form['fname'])
+        data.append(request.form['email'])
+        data.append(request.form['phone'])
+        # fullname=request.form['fname']
+        # email=request.form['email']
+        # phone=request.form['phone']
+        print(data)
+        return redirect('/set_username')
+
+        
         if password!=cnfm_password:
             return redirect('/')
         else:
+            # getOTPapi(phone)
             cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(username,fullname,email,hash_sha_256(password),phone))
             mydb.commit()
             return render_template('access.html',title="registration-success!")
+
+@app.route('/set_username')
+def set_username():
+    # name = request.args.get('name')
+    fullname=request.args.get('fname')
+    email=request.args.get('email')
+    phone=request.args.get('phone')
+    username=request.form['username']
+    password=request.form['password']
+    cnfm_password=request.form['cnfmpassword']
+
+# @app.route('/otp_verification',methods=['GET','POST'])
+# def otp_verification():
+#     if request.method=="POST":
+#         number=request.form['phone']
+#         val=getOTPapi(number)
+#         if val
 
 @app.route('/courses_offered')
 def courses_offered():
@@ -58,7 +81,7 @@ def help_center():
 
 @app.route('/logout')
 def logout():
-    response = make_response(render_template('logout.html',title='logging-out'))
+    response = make_response(redirect('/'))
     response.set_cookie('user', '', max_age=0)
     return response
 

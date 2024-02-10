@@ -16,8 +16,6 @@
         <nav id ="before-signup-login">
             <div class="logo"><i class="fa-brands fa-google-scholar"></i>Learning With AI</div>
             {% if request.cookies.get('user') %}
-            <!-- <nav id = "after-signup-login"> -->
-            <!-- <div class="logo"><i class="fa-brands fa-google-scholar"></i>Learning With AI</div> -->
                 <div class="nav-bar">
                     <a href="{{url_for('home')}}">Home</a>
                     <a href="{{url_for('courses_offered')}}">Courses</a>
@@ -26,7 +24,6 @@
                     <div class="line2"></div>
                     <a href="{{url_for('logout')}}"><button class="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
                 </div>
-            <!-- </nav> -->
             {% else %}
             <div class="sign_in_bar">
                 <button class="login-btn">Log in</button>
@@ -48,7 +45,7 @@
                     <input type="password" name="passwd" id="pass" placeholder="Enter your password"><br>
                     <button class="loginbtn-loginform"> Log in</button>
                 </form>
-                <a href="">Don't have an account?</a>
+                <a href="#">Don't have an account?</a>
             </div>
         </div>
         <div class="signup-form-container">
@@ -56,24 +53,25 @@
                 <h2><i class="fa-brands fa-google-scholar"></i>Learning With AI</h2>
                 <h3>Create your account</h3>
                 <form action="{{url_for('user_signup')}}" method="POST">
-                    <div class="first-page">
-                        <label for="fname">Enter your Fullname:</label><br>
-                        <input type="text" name="fname" id="fname"placeholder=" Your Fullname"><br>
-                        <label for="email">Enter your Email:</label><br>
-                        <input type="text" name="email" id="email" placeholder="Your Email"><br>
-                        <label for="no">Enter your phone number:</label><br>
-                        <input type="number" name="phone" id="no" placeholder="Enter Number"><br>
-                        <button class="next">Next</button>
-                    </div>
-                    <div class="sec-page">
-                        <label for="uname2">Create your Username</label><br>
-                        <input type="text" name="username" id="uname2" placeholder="Username"><br>
-                        <label for="Pass">Create your Password</label><br>
-                        <input type="password" name="password" id="Pass" placeholder="Password"><br>
-                        <label for="rePass">Reenter Password</label><br>
-                        <input type="password" name="cnfmpassword" id="rePass" placeholder="Reenter Password"><br>
-                        <input type="submit" class="submitbtn" id="Pass"><br>
-                    </div>
+                    <label for="fname">Enter your Fullname:</label><br>
+                    <input type="text" name="fname" id="fname"placeholder="Your Fullname"><br>
+                    <label for="email">Enter your Email:</label><br>
+                    <input type="text" name="email" id="email" placeholder="Your Email"><br>
+                    <label for="no">Enter your phone number:</label><br>
+                    <input type="number" name="phone" id="no" placeholder="Enter Number"><br>
+                </form>
+                <button type="submit" class="next">Next</button>
+            </div>
+            <div class="signup-form-nxt">
+                <h2><i class="fa-brands fa-google-scholar"></i>Learning With AI</h2>
+                <form action="{{url_for('set_username')}}" method="POST">
+                    <label for="uname2">Create your Username</label><br>
+                    <input type="text" name="username" id="uname2" placeholder="Username"><br>
+                    <label for="Pass">Create your Password</label><br>
+                    <input type="password" name="password" id="Pass" placeholder="Password"><br>
+                    <label for="rePass">Reenter Password</label><br>
+                    <input type="password" name="cnfmpassword" id="rePass" placeholder="Reenter Password"><br>
+                    <input type="submit" class="submitbtn" id="Pass"><br>
                 </form>
             </div>
         </div>
