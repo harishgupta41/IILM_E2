@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, make_response
+from flask import Flask, render_template, request, redirect, make_response, jsonify
 import mysql.connector
 from user_methods import hash_sha_256, getOTPapi
 
@@ -34,43 +34,34 @@ def user_login():
 @app.route('/user_signup',methods=['GET','POST'])
 def user_signup():
     if request.method=="POST":
-        # print(request.form)
         data=[]
         data.append(request.form['fname'])
         data.append(request.form['email'])
         data.append(request.form['phone'])
-        # fullname=request.form['fname']
-        # email=request.form['email']
-        # phone=request.form['phone']
+        data.append(request.form['username'])
+        data.append(request.form['password'])
+        password=request.form['password']
+        cnfm_password=request.form['cnfmpassword']
         print(data)
-        return redirect('/set_username')
-
-        
         if password!=cnfm_password:
             return redirect('/')
         else:
-            # getOTPapi(phone)
-            cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(username,fullname,email,hash_sha_256(password),phone))
+            return jsonify(data),redirect('/verify_otp')
+
+@app.route('/verify_otp')
+def verify_otp():
+    data=request.get_json()
+    print(data)
+    gen_otp=getOTPapi(data[2])
+    if request.method=="POST":
+        rec_otp=request.form['rec_otp']
+        if gen_otp!=rec_otp:
+            return redirect('/')
+        else:
+            cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(data[3],data[0],data[1],hash_sha_256(data[4]),data[3]))
             mydb.commit()
-            return render_template('access.html',title="registration-success!")
-
-@app.route('/set_username')
-def set_username():
-    # name = request.args.get('name')
-    fullname=request.args.get('fname')
-    email=request.args.get('email')
-    phone=request.args.get('phone')
-    username=request.form['username']
-    password=request.form['password']
-    cnfm_password=request.form['cnfmpassword']
-
-# @app.route('/otp_verification',methods=['GET','POST'])
-# def otp_verification():
-#     if request.method=="POST":
-#         number=request.form['phone']
-#         val=getOTPapi(number)
-#         if val
-
+            return redirect('/')
+        
 @app.route('/courses_offered')
 def courses_offered():
     return render_template('courses.html',title='courses-offered')
