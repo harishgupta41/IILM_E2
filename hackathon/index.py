@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, make_response
+from flask import Flask, render_template, request, redirect, make_response, jsonify
 import mysql.connector
-from user_methods import hash_sha_256
+from user_methods import hash_sha_256, getOTPapi
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -17,14 +17,6 @@ app=Flask(__name__)
 def home():
     return render_template('home.html',title="home")
 
-# @app.route('/home_user')
-# def home_user():
-#     return render_template('home.html',title='home')
-
-# @app.route('/login')
-# def login():
-#     return render_template('login.html',title="login")
-
 @app.route('/user_login',methods=['GET','POST'])
 def user_login():
     if request.method=="POST":
@@ -38,38 +30,51 @@ def user_login():
             return resp
         else:
             return redirect('/')
-            
-
-# @app.route('/signup')
-# def signup():
-#     return render_template('signup.html',title="signup")
 
 @app.route('/user_signup',methods=['GET','POST'])
 def user_signup():
     if request.method=="POST":
-        print(request.form[0])
-        fullname=request.form['fname']
-        email=request.form['email']
-        phone=request.form['phone']
-        username=request.form['username']
+        data=[]
+        data.append(request.form['fname'])
+        data.append(request.form['email'])
+        data.append(request.form['phone'])
+        data.append(request.form['username'])
+        data.append(request.form['password'])
         password=request.form['password']
         cnfm_password=request.form['cnfmpassword']
+        print(data)
         if password!=cnfm_password:
             return redirect('/')
         else:
-            cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(username,fullname,email,hash_sha_256(password),phone))
+            return jsonify(data),redirect('/verify_otp')
+
+@app.route('/verify_otp')
+def verify_otp():
+    data=request.get_json()
+    print(data)
+    gen_otp=getOTPapi(data[2])
+    if request.method=="POST":
+        rec_otp=request.form['rec_otp']
+        if gen_otp!=rec_otp:
+            return redirect('/')
+        else:
+            cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(data[3],data[0],data[1],hash_sha_256(data[4]),data[3]))
             mydb.commit()
-            return render_template('access.html',title="registration-success!")
+            return redirect('/')
         
-        
-        # return redirect('/')
+@app.route('/courses_offered')
+def courses_offered():
+    return render_template('courses.html',title='courses-offered')
+
+@app.route('/help_center')
+def help_center():
+    return render_template('help.html',title="help-center")
 
 @app.route('/logout')
 def logout():
-    response = make_response(render_template('logout.html',title='logging-out'))
+    response = make_response(redirect('/'))
     response.set_cookie('user', '', max_age=0)
     return response
-
 
 if __name__=="__main__":
     app.run(debug=True)

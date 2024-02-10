@@ -270,7 +270,10 @@ form input {
 /* --------------------------------------------------------- */
 .container-1 {
     height: 88vh;
+<<<<<<< HEAD
     margin-top: 0vh;
+=======
+>>>>>>> 59cffd8b30d8725b55ae98a06e3bbb4e0e540023
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -279,6 +282,7 @@ form input {
 }
 
 .home-pg-text{
+
     height: 50vh;
     width: 80vw;
     margin-top: 2vh;
@@ -303,6 +307,7 @@ form input {
     background-color: rgb(127, 0, 255);
 
 }
+<<<<<<< HEAD
 /* --------------------------------------------------------- */
 #sec-page{
     height: 88vh;
@@ -339,3 +344,16 @@ form input {
     background-color: rgb(127 , 0, 255);
     border: 2px solid black;
 }
+=======
+sign-up form .sec-page{
+    display:none;
+}
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+>>>>>>> 59cffd8b30d8725b55ae98a06e3bbb4e0e540023
