@@ -270,10 +270,7 @@ form input {
 /* --------------------------------------------------------- */
 .container-1 {
     height: 88vh;
-<<<<<<< HEAD
     margin-top: 0vh;
-=======
->>>>>>> 59cffd8b30d8725b55ae98a06e3bbb4e0e540023
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -307,7 +304,6 @@ form input {
     background-color: rgb(127, 0, 255);
 
 }
-<<<<<<< HEAD
 /* --------------------------------------------------------- */
 #sec-page{
     height: 88vh;
@@ -344,16 +340,44 @@ form input {
     background-color: rgb(127 , 0, 255);
     border: 2px solid black;
 }
-=======
-sign-up form .sec-page{
-    display:none;
-}
 
-
-.content{
+footer{
+    height: 15vh;
+    /* margin: 1%; */
+    background-color: black;
     display: flex;
     flex-direction: column;
+    /* position: relative; */
+}
+footer .title{
+    margin-top: .7%;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
->>>>>>> 59cffd8b30d8725b55ae98a06e3bbb4e0e540023
+
+footer .title h1{
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: bolder; */
+}
+
+footer .container1{
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer .container1 a{
+    text-decoration: none;
+}
+
+footer .container1 p{
+    color: beige;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.courses-display{
+    height: 90vh;
+}
