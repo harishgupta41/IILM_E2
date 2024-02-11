@@ -1,6 +1,14 @@
-from flask import Flask, render_template, request, redirect, make_response, jsonify
+
+import os
+from dotenv import load_dotenv
+from twilio.rest import Client
+from twilio.base.exceptions import TwilioRestException
+from flask import Flask, render_template, request, redirect, make_response, jsonify,json
+import requests
 import mysql.connector
-from user_methods import hash_sha_256, getOTPapi
+from user_methods import hash_sha_256
+
+
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -10,7 +18,17 @@ mydb = mysql.connector.connect(
 )
 cursor = mydb.cursor()
 
+load_dotenv()
+
 app=Flask(__name__)
+app.secret_key = 'secretkeyfordungeon'
+
+TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN= os.environ.get('TWILIO_AUTH_TOKEN')
+VERIFY_SERVICE_SID= os.environ.get('VERIFY_SERVICE_SID')
+
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+
 
 @app.route('/')
 @app.route('/home')
@@ -42,25 +60,43 @@ def user_signup():
         data.append(request.form['password'])
         password=request.form['password']
         cnfm_password=request.form['cnfmpassword']
-        print(data)
+        print(jsonify(data))
         if password!=cnfm_password:
             return redirect('/')
         else:
-            return jsonify(data),redirect('/verify_otp')
+            send_verification(data[2])
+            return jsonify(data=data), redirect('/verify_otp')
 
 @app.route('/verify_otp')
 def verify_otp():
-    data=request.get_json()
+    response = requests.post('http://localhost:5000/user_signup')
+    if response.status_code == 200:
+        json_data = response.json()
+        data = json_data.get('data', [])
+    # data=request.json()
     print(data)
-    gen_otp=getOTPapi(data[2])
-    if request.method=="POST":
-        rec_otp=request.form['rec_otp']
-        if gen_otp!=rec_otp:
-            return redirect('/')
-        else:
-            cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(data[3],data[0],data[1],hash_sha_256(data[4]),data[3]))
-            mydb.commit()
-            return redirect('/')
+    # # print(type(data))
+    # if request.method=="POST":
+    #     rec_otp=request.form['rec_otp']
+    #     if check_verification_token(data['phone'], rec_otp):
+    #         cursor.execute('insert into students values ("{0}","{1}","{2}","{3}","{4}")'.format(data['username'],data['fname'],data['email'],hash_sha_256(data['password']),data['phone']))
+    #         mydb.commit()
+    #         return render_template('access.html',title="success")
+    #     else:
+    #         return redirect('/')
+        
+def send_verification(phone):
+    client.verify \
+        .services(VERIFY_SERVICE_SID) \
+        .verifications \
+        .create(to=phone, channel='sms')
+
+def check_verification_token(phone, token):
+    check = client.verify \
+        .services(VERIFY_SERVICE_SID) \
+        .verification_checks \
+        .create(to=phone, code=token)    
+    return check.status == 'approved'
         
 @app.route('/courses_offered')
 def courses_offered():

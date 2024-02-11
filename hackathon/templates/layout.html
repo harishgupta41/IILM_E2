@@ -43,7 +43,7 @@
                     <input type="text" name="username" id="uname" placeholder="Enter your username"><br>
                     <label for="pass"><i class="fa-solid fa-lock"></i> Password</label><br>
                     <input type="password" name="passwd" id="pass" placeholder="Enter your password"><br>
-                    <button class="loginbtn-loginform"> Log in</button>
+                    <button type="submit" class="loginbtn-loginform"> Log in</button>
                 </form>
                 <a href="#">Don't have an account?</a>
             </div>
@@ -52,14 +52,14 @@
             <div class="signup-form">
                 <h2><i class="fa-brands fa-google-scholar"></i>Learning With AI</h2>
                 <h3>Create your account</h3>
-                <form action = "" >
+                <form action = "{{url_for('user_signup')}}" method="POST">
                     <div class="first-page-signup-page">
                         <label for="fname">Enter your Fullname:</label><br>
                         <input type="text" name="fname" id="fname"placeholder=" Your Fullname"><br>
                         <label for="email">Enter your Email:</label><br>
                         <input type="text" name="email" id="email" placeholder="Your Email"><br>
-                        <label for="no">Enter your phone number:</label><br>
-                        <input type="number" name="phone" id="no" placeholder="Enter Number"><br>
+                        <label for="no">Enter your phone number<br>(with country code):</label><br>
+                        <input type="text" name="phone" id="no" placeholder="Enter Number"><br>
                         <!-- <button class="next">Next</button> -->
                     <!-- </div>
                     <div class="sec-page-signup-form"> -->
@@ -70,15 +70,15 @@
                         <label for="rePass">Re-enter Password:</label><br>
                         <input type="password" name="cnfmpassword" id="rePass" placeholder="Re-enter Password"><br>
                     </div>
-                    <button class="sendotp">Send OTP</button>
+                    <button type="submit" class="sendotp">Send OTP</button>
                 </form>
             </div>
             <div class="otp-popup">
                 <p>Please Enter OTP for Verification</p>
-                <form action="">
-                    <input type="number" placeholder="Enter OTP">
+                <form action="{{url_for('verify_otp')}}" method="POST">
+                    <input type="number" name="rec_otp" placeholder="Enter OTP">
                 </form>
-                <button class="vrfy-btn">Verify Me</button>
+                <button type="submit" class="vrfy-btn">Verify Me</button>
                 <p id="resend-msg"> Didn't get OTP? <a href="">Resend OTP</a></p>
             </div>
         </div>

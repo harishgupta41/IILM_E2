@@ -1,22 +1,33 @@
-import random, hashlib
-from twilio.rest import Client
+import random, hashlib, os
+# from twilio.rest import Client
+# from dotenv import load_dotenv
+# from twilio.base.exceptions import TwilioRestException
 
-def getOTP():
-    return random.randint(100000,999999)
+# load_dotenv()
 
-def getOTPapi(num):
-    account_sid='AC69378198459d32c41da6a06c14efdcdd'
-    auth_token='5fbe686a599b2b2a0b5037fe8a3787fa'
-    client = Client(account_sid,auth_token)
-    otp=getOTP()
-    msg_body='Your OTP is '+str(otp)
-    message=client.messages.create(from_='+4420332235760',body=msg_body,to=num)
-    return otp
-    # if message.sid:
-    #     return True
-    # else:
-    #     return False
-    # print(message.status)
+# def getOTP():
+#     return random.randint(100000,999999)
+
+# def getOTPapi():
+#     # num=str(+91)+str(num)
+#     # num=int(num)
+#     print("+919650859575")
+#     account_sid='AC69378198459d32c41da6a06c14efdcdd'
+#     auth_token='5fbe686a599b2b2a0b5037fe8a3787fa'
+#     client = Client(account_sid,auth_token)
+#     service = client.verify.v2.services.create(
+#                                         friendly_name='My First Verify Service'
+#                                     )
+#     otp=getOTP()
+#     msg_body='Your OTP is '+str(otp)
+#     client.messages.verify(from_='+4420332235760',body=msg_body,to='+919650859575')
+#     return otp
+#     # if message.sid:
+#     #     return True
+#     # else:
+#     #     return False
+#     # print(message.status)
+# getOTPapi()
 
 def hash_sha_256(data):
     data=bytes(data,'utf-8')
@@ -24,4 +35,4 @@ def hash_sha_256(data):
     sha.update(data)
     return sha.hexdigest()
 
-print(hash_sha_256("harry123"))
+# print(hash_sha_256("harry123"))
